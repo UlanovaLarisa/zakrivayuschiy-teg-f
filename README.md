@@ -1,2 +1,2 @@
-https://ulanovalarisa.github.io/zakrivayushiy-teg-4-sprint/
-https://github.com/UlanovaLarisa/zakrivayushiy-teg-4-sprint.git
+https://ulanovalarisa.github.io/zakrivayuschiy-teg-f/
+https://github.com/UlanovaLarisa/zakrivayuschiy-teg-f.git
