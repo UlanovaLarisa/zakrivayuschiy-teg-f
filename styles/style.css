@@ -1,0 +1,436 @@
+/* Здесь вы напишете основную часть стилей страницы.
+
+Будьте внимательны! Для корректной работы скриптов на этом сайте нужно, чтобы в HTML некоторые классы были названы особым образом:
+✦ like-icon — для svg-иконки анимированного сердца
+✦ card__like-button — для кнопки Like рядом с иконкой
+✦ card__icon-button — для кнопки, оборачивающей иконку
+✦ card__icon-button — для кнопки, оборачивающей иконку
+✦ is-liked — для обозначения состояния лайкнутой иконки в виде сердца
+✦ button__text — для обозначения текстового элемента внутри кнопки
+
+*/
+
+.page {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-main);
+  background-color: #e7e7e7;
+  background-image: var(--page-grid-gradient);
+  background-repeat: repeat, repeat, no-repeat;
+  background-position:
+    0 0,
+    0 0,
+    center top;
+  background-size: auto, auto, cover;
+  background-attachment: fixed, fixed, fixed;
+  min-inline-size: 320px;
+  min-block-size: 100dvb;
+}
+
+@supports (font-variation-settings: normal) {
+  .page {
+    font-variation-settings: "wght" 400;
+  }
+}
+
+.header {
+  padding-top: 100px;
+  padding-bottom: 100px;
+  font-family: var(--font-accent);
+  inline-size: var(
+    --content-width,
+    clamp(23.438rem, 30.516vw + 16.285rem, 43.75rem)
+  );
+}
+
+.header__title-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  max-width: var(--content-width);
+  border: 2px solid #000000;
+  padding-block: clamp(122px, 122px + 0.75vw, 130px);
+  background: #fff;
+}
+.header__logo {
+  font-weight: 400;
+  font-size: clamp(3.063rem, 1.502vw + 2.71rem, 4.063rem);
+  line-height: 1;
+  text-transform: uppercase;
+}
+.header__subtitle {
+  font-size: clamp(0.875rem, 0.845vw + 0.677rem, 1.438rem);
+  text-transform: uppercase;
+}
+
+@supports (font-variation-settings: normal) {
+  body {
+    font-family: var(--font-accent);
+  }
+
+  .card__title {
+    font-variation-settings: "wght" var(--card-title-weight);
+  }
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  max-width: var(--content-width);
+  border: 2px solid #000000;
+  background: #fff;
+}
+
+.card__header {
+  padding: 4px 10px;
+}
+
+.card__title {
+  font-size: 18px;
+}
+
+.card__media {
+  position: relative;
+  margin: 0;
+  border-top: 2px solid var(--accent-color);
+  border-bottom: 2px solid var(--accent-color);
+  line-height: 0;
+}
+
+.card__image {
+  display: block;
+  width: 100%;
+  height: clamp(23.188rem, 30.402vw + 16.138rem, 43.5rem);
+  object-fit: cover;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card__image {
+    content: url("./images/Bored_Cookie_Monster_static.jpg");
+    animation: none;
+  }
+}
+
+.card__image.sepia {
+  filter: sepia(80%);
+}
+
+.card__image.saturated {
+  filter: saturate(158%);
+}
+
+.card__image.hue-rotate {
+  filter: hue-rotate(-52deg);
+}
+
+.card__image.vintage {
+  filter: brightness(0.95) contrast(0.7) saturate(0.9) sepia(0.5)
+    hue-rotate(-35deg) blur(0.4px);
+}
+
+.card__image.grayscale {
+  filter: grayscale(0.8);
+}
+
+.card__image.bright {
+  filter: brightness(80%);
+}
+
+.card__tag {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  opacity: 0.5;
+  color: var(--card-tag-color);
+  font-weight: 400;
+  font-size: 14px;
+  text-transform: uppercase;
+  text-shadow:
+    1px 0 var(--card-tag-stroke),
+    -1px 0 var(--card-tag-stroke),
+    0 1px var(--card-tag-stroke),
+    0 -1px var(--card-tag-stroke),
+    1px 1px var(--card-tag-stroke),
+    -1px -1px var(--card-tag-stroke),
+    1px -1px var(--card-tag-stroke),
+    -1px 1px var(--card-tag-stroke);
+  mix-blend-mode: hard-light;
+}
+
+@supports (-webkit-text-stroke: 1px var(--card-tag-stroke)) or
+  (text-stroke: 1px var(--card-tag-stroke)) {
+  .card__label {
+    text-shadow: none;
+    -webkit-text-stroke: 1px var(--card-tag-stroke);
+    text-stroke: 1px var(--card-tag-stroke);
+  }
+}
+
+@supports (font-variation-settings: normal) {
+  .card__tag {
+    font-family: var(--font-accent);
+  }
+}
+
+.card__body {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  padding-top: 25px;
+  padding-inline: 25px;
+}
+
+.card__text {
+  font-size: 18px;
+}
+
+@supports (font-variation-settings: normal) {
+  .card__text {
+    font-variation-settings: "wght" var(--card-text-weight);
+  }
+}
+
+.card__footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  padding-inline: 25px;
+  padding-block: 25px;
+}
+
+.button {
+  position: relative;
+  overflow: hidden;
+  color: #fff;
+  background-color: #fff;
+  transition: box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.card__icon-button {
+  all: unset;
+}
+
+.button:focus {
+  box-shadow: 2px 2px 0 var(--accent-color);
+  outline: none;
+}
+
+.card__icon-button:focus-visible {
+  border: 2px solid var(--accent-color);
+}
+
+.button::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: #000;
+  transition: transform 0.5s ease-in-out;
+  transform: translateX(-100%);
+}
+
+.button:hover::before {
+  transform: translateX(0);
+}
+
+.card__like-button {
+  width: 118px;
+}
+
+.button.like-icon {
+  border: none;
+}
+
+.contour {
+  transition: fill 0.1s linear 0s;
+}
+
+.core {
+  fill: transparent;
+  transition: fill 0.3s linear 0.03s;
+}
+
+.main-body {
+  fill: transparent;
+  transition: fill 0.3s linear 0s;
+}
+
+.sparks {
+  opacity: 0;
+}
+
+.like-icon {
+  transform-origin: center;
+  cursor: pointer;
+}
+
+.like-icon.is-liked .heart {
+  animation: heart-burst 0.3s ease-in 0.1s 1 forwards;
+}
+
+.like-icon.is-liked .sparks {
+  animation: sparkle-pop 0.3s ease-in 0.3s 1 forwards;
+}
+
+.like-icon:hover .core {
+  fill: var(--heart-hover-color, #000);
+  transition-delay: 0;
+}
+
+.like-icon:hover .main-body {
+  fill: var(--heart-hover-color, #000);
+  transition-delay: 0.05s;
+}
+
+.like-icon:active .core {
+  fill: var(--heart-active-color, #ff0000);
+  transition-delay: 0;
+}
+
+.like-icon:active .main-body {
+  fill: var(--heart-active-color, #ff0000);
+  transition-delay: 0.05s;
+}
+
+.like-icon.is-liked .core {
+  fill: var(--heart-active-color, #ff0000);
+  transition-delay: 0;
+}
+
+.like-icon.is-liked .main-body {
+  fill: var(--heart-active-color, #ff0000);
+  transition-delay: 0.05s;
+}
+
+.like-icon.is-liked .contour {
+  fill: var(--heart-active-color, #ff0000);
+  transition-delay: 0.06s;
+  transition-duration: 0.3s;
+}
+
+.button__text {
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.button__text,
+.button__icon {
+  position: relative;
+  z-index: 1;
+  mix-blend-mode: difference;
+}
+
+@supports (font-variation-settings: normal) {
+  .button__text {
+    font-family: var(--font-accent);
+  }
+}
+
+.main__footer {
+  display: flex;
+  justify-content: center;
+}
+
+.button--memory {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  width: 306px;
+  height: 84px;
+  padding: 17px 20px;
+  white-space: nowrap;
+}
+
+.button--memory .icon--floppy {
+  width: 28px;
+  height: 28px;
+  color: var(--button-background-color);
+}
+
+.dialog__popup[open] {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  width: clamp(21.313rem, 1.127vw + 21.048rem, 22.063rem);
+  margin-inline: 17px;
+  border: none;
+  padding: 30px 40px;
+  background: var(--button-background-color);
+}
+
+.dialog__popup[open]::backdrop {
+  background-color: rgba(0, 0, 0, 0.75);
+}
+
+.dialog__window .icon--floppy {
+  height: 39px;
+  background-color: var(--button-background-color);
+}
+
+.dialog__window {
+  display: grid;
+  grid-template-columns: 39px 1fr;
+  align-items: center;
+  gap: 20px;
+  box-sizing: border-box;
+  max-height: 100%;
+  overflow: hidden;
+  font-family: var(--font-accent);
+  font-weight: var(--button-text-weight);
+  font-size: 14px;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+.button-ok {
+  border: 2px solid var(--accent-color);
+  padding: 12.5px 116.5px;
+  font-family: var(--font-accent);
+  font-size: 14px;
+  text-align: center;
+  background-color: transparent;
+  transition: box-shadow 0.3s ease;
+}
+
+@supports (font-variation-settings: normal) {
+  .dialog__message {
+    font-family: var(--font-accent);
+    font-variation-settings: "wght" var(--button-text-weight);
+  }
+}
+
+@media (width > 375px) {
+  .page {
+    align-items: center;
+  }
+
+  .button--memory {
+    flex-direction: row;
+    justify-content: center;
+    gap: 8px;
+    width: 335px;
+    height: 55px;
+  }
+
+  .button--memory .icon--floppy {
+    width: 21px;
+    height: 21px;
+  }
+
+  .dialog__popup[open] {
+    margin-inline: 543.5px;
+    margin-block: 384.5px;
+    padding: 30px 30px;
+  }
+}
