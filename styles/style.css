@@ -78,6 +78,7 @@
 .content {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 50px;
 }
 
@@ -108,8 +109,8 @@
 .card__image {
   display: block;
   width: 100%;
-  height: clamp(23.188rem, 30.402vw + 16.138rem, 43.5rem);
   object-fit: cover;
+  aspect-ratio: 1 / 1;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -167,7 +168,7 @@
 
 @supports (-webkit-text-stroke: 1px var(--card-tag-stroke)) or
   (text-stroke: 1px var(--card-tag-stroke)) {
-  .card__label {
+  .card__tag {
     text-shadow: none;
     -webkit-text-stroke: 1px var(--card-tag-stroke);
     text-stroke: 1px var(--card-tag-stroke);
@@ -282,7 +283,7 @@
 
 .like-icon:hover .core {
   fill: var(--heart-hover-color, #000);
-  transition-delay: 0;
+  transition-delay: 0s;
 }
 
 .like-icon:hover .main-body {
@@ -292,7 +293,7 @@
 
 .like-icon:active .core {
   fill: var(--heart-active-color, #ff0000);
-  transition-delay: 0;
+  transition-delay: 0s;
 }
 
 .like-icon:active .main-body {
@@ -302,7 +303,7 @@
 
 .like-icon.is-liked .core {
   fill: var(--heart-active-color, #ff0000);
-  transition-delay: 0;
+  transition-delay: 0s;
 }
 
 .like-icon.is-liked .main-body {
@@ -319,6 +320,10 @@
 .button__text {
   font-size: 14px;
   white-space: nowrap;
+}
+
+.button--memory__text {
+  text-transform: uppercase;
 }
 
 .button__text,
@@ -363,7 +368,6 @@
   flex-direction: column;
   gap: 30px;
   width: clamp(21.313rem, 1.127vw + 21.048rem, 22.063rem);
-  margin-inline: 17px;
   border: none;
   padding: 30px 40px;
   background: var(--button-background-color);
@@ -418,7 +422,6 @@
   .button--memory {
     flex-direction: row;
     justify-content: center;
-    gap: 8px;
     width: 335px;
     height: 55px;
   }
@@ -429,8 +432,6 @@
   }
 
   .dialog__popup[open] {
-    margin-inline: 543.5px;
-    margin-block: 384.5px;
     padding: 30px 30px;
   }
 }
