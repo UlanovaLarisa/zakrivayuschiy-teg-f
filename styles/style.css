@@ -51,7 +51,7 @@
   gap: 20px;
   max-width: var(--content-width);
   border: 2px solid #000000;
-  padding-block: clamp(122px, 122px + 0.75vw, 130px);
+  padding-block: clamp(122px, calc(122px + (8 * ((100vw - 327px) / 1113))), 130px);
   background: #fff;
 }
 .header__logo {
@@ -147,7 +147,7 @@
 
 .card__tag {
   position: absolute;
-  top: 25px;
+  top: 30px;
   right: 25px;
   opacity: 0.5;
   color: var(--card-tag-color);
@@ -202,7 +202,7 @@
 .card__footer {
   display: flex;
   justify-content: flex-end;
-  gap: 12px;
+  gap: 8px;
   padding-inline: 25px;
   padding-block: 25px;
 }
@@ -217,6 +217,10 @@
 }
 
 .card__icon-button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
   all: unset;
 }
 
@@ -243,11 +247,17 @@
 }
 
 .card__like-button {
-  width: 118px;
+  width: 130px;
+  height: 38px;
 }
 
 .button.like-icon {
   border: none;
+}
+
+.heart {
+  transform-origin: center;
+  transform-box: fill-box;
 }
 
 .contour {
@@ -351,6 +361,7 @@
   gap: 8px;
   width: 306px;
   height: 84px;
+  margin-bottom: 100px;
   padding: 17px 20px;
   white-space: nowrap;
 }
